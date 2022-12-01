@@ -12,6 +12,7 @@ import theme from "@theme/index";
 
 import { Groups } from "@screens/Groups";
 import { NewGroup } from "@screens/NewGroup";
+import { Players } from "@screens/Players";
 
 export default function App() {
   const [fontsLoades] = useFonts({ Roboto_400Regular, Roboto_700Bold });
@@ -23,7 +24,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoades ? <NewGroup /> : <Loading />}
+      {fontsLoades ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 }
