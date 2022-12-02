@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Header } from "@components/Header";
 import { HighLight } from "@components/Highlight";
@@ -20,6 +21,12 @@ export function Groups() {
     "Academia",
   ]);
 
+  const navigation = useNavigation();
+
+  function handleNewGroup() {
+    navigation.navigate("new");
+  }
+
   return (
     <Container>
       <Header />
@@ -32,7 +39,7 @@ export function Groups() {
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
         ListEmptyComponent={<ListEmpty message="Nenhum grupo encontrado" />}
       />
-      <Button title="Criar nova turma" />
+      <Button title="Criar nova turma" onPress={handleNewGroup} />
     </Container>
   );
 }
